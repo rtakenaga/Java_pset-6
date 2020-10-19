@@ -3,13 +3,17 @@ import java.util.Scanner;
 public class Exercise10 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+
         System.out.print("Enter credit card number: ");
-        long given = input.nextLong();
-        String number = Long.toString(given);
+        long num = input.nextLong();
+
+        String number = Long.toString(num);
         int length = number.length();
         int temp1  = 0;
         int temp2 = 0;
         int totalSum;
+
+
         for (int k = length-2; k >= 0; k -=2) {
             char value = number.charAt(k);
             int intValue = Character.getNumericValue(value) * 2;
@@ -22,11 +26,14 @@ public class Exercise10 {
                 temp1 = temp1 + intValue;
             }
         }
+        
         for (int m = length -1; m >= 0; m -=2) {
             char value = number.charAt(m);
             int intValue = Character.getNumericValue(value);
             temp2 = temp2 + intValue;
         }
+
+        
         totalSum = temp1 + temp2;
         if (totalSum % 10 == 0) {
             if (((number.startsWith("34")) || (number.startsWith("37"))) && (length == 15)) {
@@ -46,6 +53,8 @@ public class Exercise10 {
                 System.out.println("Invalid.");
             }
         }
+        
+        
         else {
             System.out.println("Invalid.");
         }
